@@ -1,8 +1,12 @@
-let fs = require("fs");
+let fs = require('fs');
 
-module.exports = () => {
-  fs.readFile("data", (err, data) => {
-    if (err) throw err;
-    console.log(data);
+module.exports = (fileName) => {
+  fs.readFile(fileName, 'utf8', (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      console.log(data);
+      process.stdout.write('\nprompt >');
+    }
   });
 };
